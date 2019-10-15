@@ -12,6 +12,10 @@ class App extends React.Component {
     //     this.onTermSubmit('lofi');
     // }
 
+    componentDidMount() {
+        document.title = 'Mix Hour';
+    }
+
     onTermSubmit = async (term) => {
         const response = await youtube.get('/search', {
             params: {
@@ -32,8 +36,7 @@ class App extends React.Component {
         this.setState({ selectedVideo: singleVideoFromVideoItem, videoKey: vidKey});
         this.changeVidColor();
     }
-
-
+    
     componentDidUpdate() {
         var random = [];
         random = document.querySelectorAll(".vid_descript");
